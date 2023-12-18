@@ -1,11 +1,10 @@
-package com.example.springrolejwt.config;
+package com.example.springrolejwt.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
@@ -14,14 +13,20 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class Role implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false, length = 50, unique = true)
-    private String name;
+    Integer id ;
+    @Enumerated(EnumType.STRING)
+    RoleName roleName;
 
+    public Role (RoleName roleName) {this.roleName = roleName;}
+    public String getRoleName() {
+        return roleName.toString();
+    }
 
     @Override
     public boolean equals(Object obj) {
