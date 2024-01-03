@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class SuperadminController {
     @GetMapping("/hi")
-    public String sayHi ()
-    { return "Hi" ;}
+    public String sayHi() {
+        return "Hi";
+    }
 }

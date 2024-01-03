@@ -16,4 +16,9 @@ public class RoleService implements IRoleService{
     public Role save(RoleName roleName) {
         return roleRepository.save(new Role(roleName));
     }
+
+    @Override
+    public Role findByRoleName(RoleName roleName) {
+        return roleRepository.findByRoleName(roleName);
+    }
 }

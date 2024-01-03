@@ -74,4 +74,19 @@ public class User implements Serializable, UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        return Objects.nonNull(this.getId()) &&
+                Objects.equals(this.getId(), ((User) o).getId());
+    }
+
+    @Override
+    public int hashCode() {
+        if(Objects.nonNull(this.getId()))
+            return this.getId().hashCode();
+        return this.getClass().hashCode();
+    }
 }

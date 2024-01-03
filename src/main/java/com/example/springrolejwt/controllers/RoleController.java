@@ -17,7 +17,7 @@ public class RoleController {
     private final RoleService roleService;
 
     @PostMapping
-    public ResponseEntity<Role> save(@RequestBody RoleName roleName){
+    public ResponseEntity<Role> save(@RequestBody RoleName roleName) {
         return ResponseEntity.ok(roleService.save(roleName));
     }
 }

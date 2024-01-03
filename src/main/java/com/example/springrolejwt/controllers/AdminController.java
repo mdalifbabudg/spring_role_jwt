@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AdminController {
     @GetMapping("/hello")
-    public String sayHello ()
-    { return "Hello" ;}
+    public String sayHello() {
+        return "Hello";
+    }
 }
